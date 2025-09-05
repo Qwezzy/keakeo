@@ -1,6 +1,7 @@
 "use server";
 
 import * as z from "zod";
+import { sendEmail } from "@/lib/email";
 
 const formSchema = z.object({
   name: z.string(),
@@ -16,11 +17,27 @@ export async function submitContactForm(values: z.infer<typeof formSchema>) {
     return { success: false, error: "Invalid fields." };
   }
 
-  // Here you would typically send an email, save to a database, etc.
-  // For this example, we'll just simulate a successful submission.
-  console.log("Received contact form submission:", validatedFields.data);
+  const { name, email, subject, message } = validatedFields.data;
   
-  await new Promise(resolve => setTimeout(resolve, 1000));
-
-  return { success: true };
+  try {
+    await sendEmail({
+      to: "info@keakeo.co.za",
+      cc: "dmphala@keakeo.co.za",
+      from: `"${name}" <${process.env.SMTP_USER}>`,
+      replyTo: email,
+      subject: `New Contact Form Submission: ${subject}`,
+      html: `
+        <h1>New Contact Form Submission</h1>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Subject:</strong> ${subject}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, '<br>')}</p>
+      `,
+    });
+    return { success: true };
+  } catch (error) {
+    console.error("Failed to send email:", error);
+    return { success: false, error: "Failed to send message. Please try again later." };
+  }
 }

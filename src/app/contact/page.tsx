@@ -38,7 +38,7 @@ export default function ContactPage() {
                     <Phone className="h-5 w-5" />
                   </div>
                   <a href="tel:+27123456789" className="text-lg text-foreground hover:text-primary">
-                    +27 12 345 6789
+                    +27 78 179 6354
                   </a>
                 </div>
                 <div className="flex items-center gap-4">
