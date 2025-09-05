@@ -46,7 +46,7 @@ export default function ContactPage() {
                     <MapPin className="h-5 w-5" />
                   </div>
                   <p className="text-lg text-foreground">
-                    123 Business Lane, Pretoria, South Africa
+                    20865 Matlala Street,Daveyton, Benoni, 1520, Gauteng, South Africa
                   </p>
                 </div>
               </div>
