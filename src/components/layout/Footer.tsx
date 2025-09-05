@@ -71,7 +71,7 @@ const Footer = () => {
                 <h3 className="text-sm font-semibold leading-6 text-foreground">Contact</h3>
                 <ul role="list" className="mt-4 space-y-2 text-sm text-muted-foreground">
                     <li>Email: <a href="mailto:info@keakeo.co.za" className="hover:text-primary">info@keakeo.co.za</a></li>
-                    <li>Phone: <a href="tel:+27123456789" className="hover:text-primary">+27 12 345 6789</a></li>
+                    <li>Phone: <a href="tel:+27781796354" className="hover:text-primary">+27 78 179 6354</a></li>
                 </ul>
                </div>
             </div>
