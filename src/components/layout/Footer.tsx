@@ -79,7 +79,15 @@ const Footer = () => {
         </div>
         <div className="mt-12 border-t pt-8">
           <p className="text-sm text-muted-foreground text-center">
-            &copy; {new Date().getFullYear()} Keakeo Assist. All rights reserved.
+            &copy; {new Date().getFullYear()} Keakeo Assist. All rights reserved. | Powered by{' '}
+            <a
+              href="https://khemo.co.za"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary underline"
+            >
+              Khemo IT Solutions
+            </a>
           </p>
         </div>
       </div>
